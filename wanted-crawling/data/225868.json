@@ -1,0 +1,28 @@
+{
+    "company_name": "미디어윌네트웍스(알바천국)",
+    "title": "웹개발자",
+    "content": {
+        "expect": [
+            "알바천국 서비스 웹 개발 및 유지보수 업무"
+        ],
+        "requirement": [
+            "ASP.NET MVC 기반 C# 개발 경험 및 능력을 보유한 분",
+            "MS-SQL 기반 저장프로시저 개발 경험 및 능력을 보유한 분"
+        ],
+        "prefer": [
+            ".NET with C# .NET framework 기반 개발에 익숙한 분",
+            "Web Socket을 활용한 실시간 통신 개발 경험이 있거나 이해도가 있는 분",
+            "JAVA with Spring framework 개발 경력자",
+            "Python 개발 경력자",
+            "MVP, MVVM, MVC 패턴 개념을 이해하고 활용 가능한 분",
+            "대용량 트래픽 경험 및 DB설계 가능한 분",
+            "ElasticSearch 경험자",
+            "Restful API 설계/구현에 능숙한 분",
+            "서비스 플랫폼 전환 경험자 (Classic ASP, .NET)",
+            "Git/SVN 을 이용한 형상/버전관리 경험자",
+            "단위테스트 및 코드리뷰에 적극적인 분",
+            "서비스 지향적 마인드 및 새로운 기술/트렌드에 대한 많은 관심이 있는 분",
+            "요구사항을 이해하고 문제를 해결하며 자기 주도형 업무 처리능력을 갖춘 분"
+        ]
+    }
+}

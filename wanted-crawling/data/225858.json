@@ -1,0 +1,21 @@
+{
+    "company_name": "효돌",
+    "title": "소프트웨어 개발자",
+    "content": {
+        "expect": [
+            "부모사랑 효돌 관련 앱 개발"
+        ],
+        "requirement": [
+            "개발 경력 2년이상",
+            "Native Android App (Android jetpack)",
+            "Java/Kotlin 프로그래밍 지식",
+            "새로운 기술을 익히고 적용하는 데에 거부감이 없으신 분"
+        ],
+        "prefer": [
+            "Kotlin 개발 경험",
+            "React 개발 경험",
+            "iOS 개발 경험",
+            "모바일 크로스 플랫폼(React, Flutter) 개발 경험"
+        ]
+    }
+}
