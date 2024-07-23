@@ -4,6 +4,7 @@ from crawling.main import get_all_urls
 from crawling.crawl_run import client_side_crawl
 from prompts.main import check_is_dev_jd, jd_to_json
 
+os.environ['OPENAI_API_KEY'] = os.environ.get('OPENAI_API_KEY')
 START_INDEX = 225900
 END_INDEX = 226000
 
