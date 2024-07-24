@@ -7,8 +7,8 @@ def check_is_dev_jd(title):
       llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
       prompt = ChatPromptTemplate.from_template(
             """
-            Check if the job title is for a developer job.
-            If the job description is for a developer job, return "Yes". Otherwise, return "No".
+            Check if the job title is related to developer job.
+            If the job description is related to developer job, return "Yes". Otherwise, return "No".
             
             Title:
             {title}
@@ -16,7 +16,9 @@ def check_is_dev_jd(title):
 
 
       chain = prompt | llm
-      return chain.invoke({"title": title, "verbose": False}).content
+      result = chain.invoke({"title": title}).content
+      
+      return result == "Yes"
 
 def jd_to_json(title):
       llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
