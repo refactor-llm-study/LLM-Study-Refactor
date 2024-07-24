@@ -4,7 +4,7 @@ import json
 def check_is_dev_jd(title):
       if(title == ""):
             return "No"
-      llm = ChatOpenAI(model="gpt-4", temperature=0)
+      llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
       prompt = ChatPromptTemplate.from_template(
             """
             Check if the job title is for a developer job.
@@ -19,7 +19,7 @@ def check_is_dev_jd(title):
       return chain.invoke({"title": title, "verbose": False}).content
 
 def jd_to_json(title):
-      llm = ChatOpenAI(model="gpt-4o", temperature=0)
+      llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
       prompt = ChatPromptTemplate.from_template(
             """
             요구사항:
