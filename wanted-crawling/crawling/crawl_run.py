@@ -90,7 +90,7 @@ def client_side_crawl(url):
 
         # 9 사무실 location 찾기
         # "JobWorkPlace_JobWorkPlace__map__location" class를 포함한 div 태그에 포함된 텍스트가 사무실 위치
-        location_div = WebDriverWait(driver, 10).until(
+        location_div = WebDriverWait(driver, 2).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "div[class*='JobWorkPlace_JobWorkPlace__map__location']"))
         )
         location_text = location_div.text

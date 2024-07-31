@@ -3,12 +3,12 @@ from langchain_core.prompts import ChatPromptTemplate
 import json
 def check_is_dev_jd(title):
       if(title == ""):
-            return "No"
+            return False
       llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
       prompt = ChatPromptTemplate.from_template(
             """
-            Check if the job title is related to developer job.
-            If the job description is related to developer job, return "Yes". Otherwise, return "No".
+            Check if the job title is related to software engineer job.
+            If the job title is related to software engineer job, return "Yes". Otherwise, return "No".
             
             Title:
             {title}

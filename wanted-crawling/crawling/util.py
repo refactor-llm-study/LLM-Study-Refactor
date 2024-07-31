@@ -3,7 +3,10 @@ BASE_URL = "https://wanted.co.kr/wd/"
 
 def get_all_urls(start_index, end_index):
     urls = []
-    for (i) in range(start_index, end_index + 1):
+    # start_index가 end_index보다 클 경우 정상 작동을 위해 swap
+    if start_index < end_index:
+        start_index, end_index = end_index, start_index
+    for i in range(start_index, end_index, -1):
         urls.append(BASE_URL + str(i))
     return urls
 

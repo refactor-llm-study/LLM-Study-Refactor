@@ -5,14 +5,14 @@ from dotenv import load_dotenv
 from crawling.util import get_all_urls
 from crawling.crawl_run import client_side_crawl
 from prompts.main import check_is_dev_jd, jd_to_json
-from mysql.main import insert_into_crawl_raw_data
+from mysql.main import insert_into_crawl_raw_data, select_start_index_from_db
 
 load_dotenv()
-START_INDEX = 225832
-END_INDEX = 225832
 
 def main():
-    urls = get_all_urls(START_INDEX, END_INDEX)
+    end_index = select_start_index_from_db()
+    start_index = end_index - 1000
+    urls = get_all_urls(start_index, end_index)
     for url in urls:
         crawl_data = client_side_crawl(url)
         if(check_is_dev_jd(crawl_data.title)):
