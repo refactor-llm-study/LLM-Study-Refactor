@@ -4,8 +4,6 @@ from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = "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"
 os.environ["OPENAI_API_KEY"] = ""
 
 def run_rag(retriever, question):  
