@@ -3,5 +3,5 @@ class VectorStoreRetriever:
         self.vector_store = vector_store
         self.kwargs = kwargs
 
-    def get_retriever(self):
-        return self.vector_store.as_retriever(**self.kwargs)
+    def get_retriever(self, k):
+        return self.vector_store.as_retriever(k=k)

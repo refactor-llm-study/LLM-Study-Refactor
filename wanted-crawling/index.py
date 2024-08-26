@@ -11,7 +11,7 @@ load_dotenv()
 
 def main():
     end_index = select_start_index_from_db()
-    start_index = end_index - 1000
+    start_index = end_index - 20000
     urls = get_all_urls(start_index, end_index)
     for url in urls:
         crawl_data = client_side_crawl(url)

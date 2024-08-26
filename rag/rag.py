@@ -1,12 +1,9 @@
-import os
-
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-os.environ["OPENAI_API_KEY"] = ""
-
-def run_rag(retriever, question):  
+def run_rag(documents, question):
+    print(*[(document.metadata["company_name"],document.metadata["id"]) for document in documents], sep="\n")
     model = ChatOpenAI(model="gpt-4o-mini")
 
     template = """당신은 채용 전문가 AI입니다. 아래에는 다양한 직무 설명(Job Descriptions)과 사용자가 입력한 요청 사항이 제공됩니다. 
@@ -41,7 +38,7 @@ def run_rag(retriever, question):
         | StrOutputParser()
     )
 
-    return rag_chain.invoke({"context": retriever, "question": question})
+    return rag_chain.invoke({"context": documents, "question": question})
 
 
 # 테스트
