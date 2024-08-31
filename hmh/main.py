@@ -6,10 +6,8 @@ from documet_inserter import DocumentInserter
 from retriever import Retriever
 from rag import run_rag
 
-def main():
-    # Qdrant 초기화
-    qdrant_client_wrapper = QdrantClientWrapper(Config.QDRANT_HOST, Config.COLLECTION_NAME)
-    
+def insert_data_from_mysql(qdrant_client_wrapper):
+    """MySQL에서 데이터를 가져와 Qdrant에 삽입하는 함수."""
     # MySQL 클라이언트 초기화
     mysql_client = MySQLClient(
         host=Config.MYSQL_HOST,
@@ -21,6 +19,14 @@ def main():
     # 데이터 삽입 (최대 100개 레코드 가져오기)
     inserter = DocumentInserter(qdrant_client_wrapper, mysql_client, Config.TABLE_NAME)
     inserter.insert_documents(limit=100)
+
+def main(use_mysql_data=False):
+    # Qdrant 초기화
+    qdrant_client_wrapper = QdrantClientWrapper(Config.QDRANT_HOST, Config.COLLECTION_NAME)
+    
+    # MySQL에서 데이터 삽입을 선택적으로 수행
+    if use_mysql_data:
+        insert_data_from_mysql(qdrant_client_wrapper)
     
     # 데이터 검색 및 RAG 실행
     retriever = Retriever(qdrant_client_wrapper)
@@ -39,5 +45,5 @@ def main():
     print(result)
 
 if __name__ == "__main__":
-    main()
-
+    # main() 함수 호출 시 use_mysql_data 플래그로 MySQL 데이터 사용 여부 결정
+    main(use_mysql_data=False)
