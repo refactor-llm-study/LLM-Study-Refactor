@@ -14,6 +14,7 @@ class DocumentInserter:
         documents = []
         for record in data:
             json_data = record["json"]
+            json_data["id"] = record["id"]
             data_dict = json.loads(json_data)
             detail = data_dict["detail"]
             documents.append(Document(page_content=detail, metadata=data_dict))
