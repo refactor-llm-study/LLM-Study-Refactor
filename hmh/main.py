@@ -18,7 +18,7 @@ def insert_data_from_mysql(qdrant_client_wrapper):
     
     # 데이터 삽입 (최대 100개 레코드 가져오기)
     inserter = DocumentInserter(qdrant_client_wrapper, mysql_client, Config.TABLE_NAME)
-    inserter.insert_documents(limit=100)
+    inserter.insert_documents(limit=1000)
 
 def main(use_mysql_data=False):
     # Qdrant 초기화

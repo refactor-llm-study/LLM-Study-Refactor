@@ -13,11 +13,12 @@ class DocumentInserter:
 
         documents = []
         for record in data:
-            json_data = record["json"]
-            json_data["id"] = record["id"]
-            data_dict = json.loads(json_data)
-            detail = data_dict["detail"]
-            documents.append(Document(page_content=detail, metadata=data_dict))
+            # json 문자열을 딕셔너리로 변환
+            json_data = json.loads(record["json"])
+            json_data["id"] = record["id"]  # id 추가
+            
+            detail = json_data["detail"]
+            documents.append(Document(page_content=detail, metadata=json_data))
         
         # 벡터화하여 Qdrant에 삽입
         self.qdrant_client_wrapper.add_documents(documents)
